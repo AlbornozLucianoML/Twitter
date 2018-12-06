@@ -31,7 +31,7 @@ func main() {
 
 			user := c.ReadLine()
 
-			tweet := domain.NewTweet(user, text)
+			tweet := domain.NewTextTweet(user, text)
 
 			if _, err := tweetManager.PublishTweet(tweet); err != nil {
 				c.Println("Error al publicar el tweet")
@@ -90,7 +90,7 @@ func main() {
 
 			tweet := tweetManager.GetTweetById(idInt)
 
-			c.Println("Usuario: ", tweet.User, " Tweet: ", tweet.Text, " Fecha: ", tweet.Date.Format(time.RFC850), "Id: ", tweet.Id)
+			c.Println("Usuario: ", tweet.GetUser(), " Tweet: ", tweet.GetText(), " Fecha: ", tweet.GetDate().Format(time.RFC850), "Id: ", tweet.GetId())
 
 			return
 		},
@@ -129,7 +129,7 @@ func main() {
 			tweets := tweetManager.GetTweetsByUser(user)
 
 			for _, valor := range tweets {
-				c.Println("Usuario: ", valor.User, " Tweet: ", valor.Text, " Fecha: ", valor.Date.Format(time.RFC850), "Id: ", valor.Id)
+				c.Println("Usuario: ", valor.GetUser(), " Tweet: ", valor.GetText(), " Fecha: ", valor.GetDate().Format(time.RFC850), "Id: ", valor.GetId())
 			}
 			return
 		},

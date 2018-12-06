@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/domain/tweet.go" line="28" mnemonic="6" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="2138dcd8-536a-4c64-b559-eaf66421fd19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/domain/tweet.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/tweet_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/text_tweet.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/tweet.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/tweet.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/tweet_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/text_tweet_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/tweet_manager.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/tweet_manager.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/tweet_manager_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/tweet_manager_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tweeter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/tweeter.go" afterDir="false" />
@@ -30,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/tweet_manager.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+            <state relative-caret-position="105">
+              <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
               <folding>
                 <element signature="e#17#85#0" expanded="true" />
               </folding>
@@ -42,35 +40,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/tweet_manager_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="247" column="34" selection-start-line="247" selection-start-column="34" selection-end-line="247" selection-end-column="34" />
+            <state relative-caret-position="3360">
+              <caret line="228" column="38" selection-start-line="228" selection-start-column="38" selection-end-line="228" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/tweet_test.go">
+        <entry file="file://$PROJECT_DIR$/src/domain/text_tweet.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            <state relative-caret-position="98">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/domain/tweet.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/domain/tweet.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tweeter.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
+            <state relative-caret-position="1875">
+              <caret line="131" column="155" selection-start-line="131" selection-start-column="155" selection-end-line="131" selection-end-column="155" />
             </state>
           </provider>
         </entry>
@@ -86,8 +84,13 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>Tweet</find>
+      <find>TextTweet</find>
       <find>isValidTweet</find>
     </findStrings>
+    <replaceStrings>
+      <replace>TextTweet</replace>
+    </replaceStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
@@ -96,13 +99,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/domain/Tweet.go" />
         <option value="$PROJECT_DIR$/src/service/TweetManager.go" />
-        <option value="$PROJECT_DIR$/src/service/tweet_manager.go" />
-        <option value="$PROJECT_DIR$/src/service/tweet_manager_test.go" />
-        <option value="$PROJECT_DIR$/src/tweeter.go" />
         <option value="$PROJECT_DIR$/src/domain/tweet_test.go" />
+        <option value="$PROJECT_DIR$/src/domain/Tweet.go" />
+        <option value="$PROJECT_DIR$/src/domain/text_tweet_test.go" />
+        <option value="$PROJECT_DIR$/src/service/tweet_manager_test.go" />
+        <option value="$PROJECT_DIR$/src/service/tweet_manager.go" />
+        <option value="$PROJECT_DIR$/src/domain/text_tweet.go" />
         <option value="$PROJECT_DIR$/src/domain/tweet.go" />
+        <option value="$PROJECT_DIR$/src/tweeter.go" />
       </list>
     </option>
   </component>
@@ -234,42 +239,42 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Test.go test github.com/AlbornozLucianoML/Twitter/src/domain" />
+        <item itemvalue="Go Test.go test github.com/AlbornozLucianoML/Twitter/src/service" />
         <item itemvalue="Go Test.TestCanGetAStringFromATweet in github.com/AlbornozLucianoML/Twitter/src/domain" />
         <item itemvalue="Go Test.TestCanGetAPrintableTweet in github.com/AlbornozLucianoML/Twitter/src/domain" />
         <item itemvalue="Go Test.TestPublishedTweetIsSaved in github.com/AlbornozLucianoML/Twitter/src/service" />
-        <item itemvalue="Go Test.go test github.com/AlbornozLucianoML/Twitter/src/service" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_service - 2018.12.06 at 15h 17m 47s.xml">
-      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/service" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_service - 2018.12.06 at 15h 18m 19s.xml">
-      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/service" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_service - 2018.12.06 at 15h 21m 33s.xml">
-      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/service" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_service - 2018.12.06 at 15h 22m 32s.xml">
-      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/service" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_service - 2018.12.06 at 15h 24m 04s.xml">
-      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/service" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestPublishedTweetIsSaved_in_github_com_AlbornozLucianoML_Twitter_src_service - 2018.12.06 at 15h 24m 08s.xml">
-      <configuration name="TestPublishedTweetIsSaved in github.com/AlbornozLucianoML/Twitter/src/service" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestCanGetAPrintableTweet_in_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 15h 38m 42s.xml">
-      <configuration name="TestCanGetAPrintableTweet in github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestCanGetAPrintableTweet_in_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 15h 39m 11s.xml">
-      <configuration name="TestCanGetAPrintableTweet in github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="TestCanGetAStringFromATweet_in_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 15h 55m 05s.xml">
       <configuration name="TestCanGetAStringFromATweet in github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
     </history-entry>
     <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 15h 55m 10s.xml">
+      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 16h 39m 19s.xml">
+      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 16h 40m 08s.xml">
+      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 16h 40m 54s.xml">
+      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 16h 57m 21s.xml">
+      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 17h 05m 19s.xml">
+      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 17h 08m 02s.xml">
+      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_service - 2018.12.06 at 17h 24m 45s.xml">
+      <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/service" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="go_test_github_com_AlbornozLucianoML_Twitter_src_domain - 2018.12.06 at 17h 24m 53s.xml">
       <configuration name="go test github.com/AlbornozLucianoML/Twitter/src/domain" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
@@ -284,13 +289,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49048626" visible="true" weight="0.24964234" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49048626" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="1" sideWeight="0.50951374" side_tool="true" visible="true" weight="0.24964234" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39858156" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -331,36 +337,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/service/tweet_manager_test.go</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/service/tweet_manager.go</url>
-          <line>37</line>
-          <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/service/tweet_manager_test.go</url>
-          <line>36</line>
-          <properties />
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/src/service/tweet_manager_test.go</url>
-          <line>42</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/local/go/src/runtime/panic.go">
@@ -408,17 +384,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tweeter.go">
+    <entry file="file:///usr/local/go/src/fmt/print.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
+        <state relative-caret-position="298">
+          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/tweet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/text_tweet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/text_tweet_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/tweet_manager.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+        <state relative-caret-position="105">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding>
             <element signature="e#17#85#0" expanded="true" />
           </folding>
@@ -427,29 +424,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/tweet_manager_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="247" column="34" selection-start-line="247" selection-start-column="34" selection-end-line="247" selection-end-column="34" />
+        <state relative-caret-position="3360">
+          <caret line="228" column="38" selection-start-line="228" selection-start-column="38" selection-end-line="228" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/tweet_test.go">
+    <entry file="file://$PROJECT_DIR$/src/tweeter.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/go/src/fmt/print.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122">
-          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/tweet.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="1875">
+          <caret line="131" column="155" selection-start-line="131" selection-start-column="155" selection-end-line="131" selection-end-column="155" />
         </state>
       </provider>
     </entry>

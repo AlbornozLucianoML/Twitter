@@ -2,10 +2,10 @@ package domain
 
 import "testing"
 
-func TestCanGetAPrintableTweet(t *testing.T) {
+func TestTextTweetPrintsUserAndTest(t *testing.T) {
 
 	//Initialization
-	tweet := NewTweet("grupoesfera", "This is my tweet")
+	tweet := NewTextTweet("grupoesfera", "This is my tweet")
 
 	// Operation
 	text := tweet.PrintableTweet()
@@ -20,10 +20,10 @@ func TestCanGetAPrintableTweet(t *testing.T) {
 func TestCanGetAStringFromATweet(t *testing.T) {
 
 	// Initialization
-	tweet := NewTweet("grupoesfera", "This is my tweet")
+	tweet := NewTextTweet("grupoesfera", "This is my tweet")
 
 	// Operation
-	text := tweet.String()
+	text := tweet.PrintableTweet()
 
 	// Validation
 	expectedText := "@grupoesfera: This is my tweet"
