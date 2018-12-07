@@ -3,6 +3,7 @@ package service_test
 import (
 	"github.com/AlbornozLucianoML/Twitter/src/domain"
 	"github.com/AlbornozLucianoML/Twitter/src/service"
+	"strings"
 	"testing"
 )
 
@@ -26,7 +27,9 @@ func IsValidTweet(t *testing.T, publishedTest domain.Tweet, id int, user string,
 
 func TestPublishedTweetIsSaved(t *testing.T) {
 
-	tweetManager := service.NewTweetManager()
+
+
+	tweetManager := service.NewTweetManager(service.NewMemoryTweetWriter())
 	// Initialization
 	var tweet domain.Tweet
 	user := "mercadolibre"
@@ -54,7 +57,7 @@ func TestPublishedTweetIsSaved(t *testing.T) {
 func TestTweetWithoutTextIsNotPublished(t *testing.T) {
 
 	//Initialization
-	tweetManager := service.NewTweetManager()
+	tweetManager := service.NewTweetManager(service.NewMemoryTweetWriter())
 
 	var tweet domain.Tweet
 
@@ -77,7 +80,7 @@ func TestTweetWithoutTextIsNotPublished(t *testing.T) {
 func TestTweetWhichExceeding140CharacterIsNotPublised(t *testing.T) {
 
 	//Initialization
-	tweetManager := service.NewTweetManager()
+	tweetManager := service.NewTweetManager(service.NewMemoryTweetWriter())
 
 	var tweet domain.Tweet
 
@@ -114,7 +117,7 @@ func TestTweetWhichExceeding140CharacterIsNotPublised(t *testing.T) {
 func TestCanPublishAndRetrieveMoreThanOneTweet(t *testing.T) {
 	// Initialization
 
-	tweetManager := service.NewTweetManager()
+	tweetManager := service.NewTweetManager(service.NewMemoryTweetWriter())
 
 	var tweet, secondTweet domain.Tweet // Fill the tweets with data
 
@@ -157,7 +160,7 @@ func TestCanPublishAndRetrieveMoreThanOneTweet(t *testing.T) {
 func TestCanRetrieveTweetById(t *testing.T) {
 
 	// Initialization
-	tweetManager := service.NewTweetManager()
+	tweetManager := service.NewTweetManager(service.NewMemoryTweetWriter())
 
 	var tweet domain.Tweet
 	var id int
@@ -181,7 +184,7 @@ func TestCanRetrieveTweetById(t *testing.T) {
 func TestCanCountTheTweetsSentByAnUser(t *testing.T) {
 
 	// Initialization
-	tweetManager := service.NewTweetManager()
+	tweetManager := service.NewTweetManager(service.NewMemoryTweetWriter())
 
 	var tweet, secondTweet, thirdTweet domain.Tweet
 	user := "grupoesfera"
@@ -216,7 +219,7 @@ func TestCanCountTheTweetsSentByAnUser(t *testing.T) {
 func TestCanRetrieveTheTweetsSentByAnUser(t *testing.T) {
 
 	// Initialization
-	tweetManager := service.NewTweetManager()
+	tweetManager := service.NewTweetManager(service.NewMemoryTweetWriter())
 
 	var tweet, secondTweet, thirdTweet domain.Tweet
 
@@ -258,4 +261,57 @@ func TestCanRetrieveTheTweetsSentByAnUser(t *testing.T) {
 	}
 }
 
+func TestPublishedTweetIsSavedToExternalResource(t *testing.T) {
 
+	// Initialization
+	var tweetWriter service.TweetWriter
+	tweetWriter = service.NewMemoryTweetWriter()
+	tweetManager := service.NewTweetManager(tweetWriter)
+
+	var tweet domain.Tweet // Fill the tweet with data
+
+	tweet = domain.NewTextTweet("Luciano", "Texto")
+
+	id, _ := tweetManager.PublishTweet(tweet)
+
+	// Validation
+	memoryWriter := (tweetWriter).(*service.MemoryTweetWriter)
+	savedTweet := memoryWriter.GetLastSavedTweet()
+
+	if savedTweet == nil {
+		t.Error("Saved tweet is nil")
+	}
+
+	if savedTweet.GetId() != id {
+		t.Errorf("Expected id = %d, got: %d", id, savedTweet.GetId())
+	}
+
+}
+
+func TestCanSearchForTweetContainingText(t *testing.T) {
+
+	//Initialization
+	var tweetWriter service.TweetWriter
+	tweetWriter = service.NewMemoryTweetWriter()
+	tweetManager := service.NewTweetManager(tweetWriter)
+	// Create and publish a tweet
+	tweet := domain.NewTextTweet("Luciano", "firstaass tweet")
+	tweetManager.PublishTweet(tweet)
+
+	// Operation
+	searchResult := make(chan domain.Tweet)
+	query := "first"
+	tweetManager.SearchTweetsContaining(query, searchResult)
+
+	//Validation
+	foundTweet := <-searchResult
+
+	if foundTweet == nil {
+		t.Error("Tweet not found")
+	}
+
+	if !strings.Contains(foundTweet.GetText(), query) {
+		t.Error("Tweet not matching")
+	}
+
+}

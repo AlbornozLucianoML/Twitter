@@ -3,12 +3,14 @@ package service
 import (
 	"fmt"
 	"github.com/AlbornozLucianoML/Twitter/src/domain"
+	"strings"
 )
 
 type TweetManager struct {
 	tweet domain.Tweet
 	tweetsMap map[string] []domain.Tweet
 	tweets []domain.Tweet
+	TweetWriter TweetWriter
 }
 
 func (tweetManager *TweetManager) PublishTweet(twit domain.Tweet) (int, error) {
@@ -38,6 +40,8 @@ func (tweetManager *TweetManager) PublishTweet(twit domain.Tweet) (int, error) {
 	tweetManager.tweetsMap[twit.GetUser()] = append(tweetManager.tweetsMap[twit.GetUser()], twit)
 
 	tweetManager.tweets = append(tweetManager.tweets, twit)
+
+	tweetManager.TweetWriter.WriteTweet(twit)
 
 	return id, nil
 
@@ -85,13 +89,25 @@ func (tweetManager *TweetManager) GetTweetsByUser(user string) []domain.Tweet {
 	return tweetManager.tweetsMap[user]
 }
 
-func NewTweetManager() *TweetManager {
+func NewTweetManager(tweetWriter TweetWriter) *TweetManager {
 
 	tweetsMap := make(map[string] []domain.Tweet)
 	tweets := make([]domain.Tweet, 0)
 
-	tweetManager := TweetManager{tweetsMap: tweetsMap, tweets: tweets}
+	tweetManager := TweetManager{tweetsMap: tweetsMap, tweets: tweets, TweetWriter: tweetWriter}
 
 	return &tweetManager
+
+}
+
+func (tweetManager *TweetManager) SearchTweetsContaining(query string, searchResult chan domain.Tweet) {
+
+	go func() { for _, valor := range tweetManager.tweets {
+		if strings.Contains(valor.GetText(), query) {
+			searchResult <- valor
+		}
+	}
+		close(searchResult)
+	}()
 
 }

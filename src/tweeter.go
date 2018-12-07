@@ -14,7 +14,9 @@ func main() {
 	shell.SetPrompt("Tweeter >> ")
 	shell.Print("Type 'help' to know commands\n")
 
-	tweetManager := service.NewTweetManager()
+	tweetWriter := service.NewFileTweetWriter()
+
+	tweetManager := service.NewTweetManager(tweetWriter)
 
 	shell.AddCmd(&ishell.Cmd{
 		Name: "publishTweet",
@@ -135,7 +137,27 @@ func main() {
 		},
 	})
 
-
+	//shell.AddCmd(&ishell.Cmd{
+	//	Name: "writeTwitter",
+	//	Help: "writes a tweet into a file",
+	//	Func: func(c *ishell.Context) {
+	//
+	//		defer c.ShowPrompt(true)
+	//
+	//		c.Print("Write the user: ")
+	//
+	//		user := c.ReadLine()
+	//
+	//		c.Print("Write the tweet: ")
+	//
+	//		text := c.ReadLine()
+	//
+	//		tweet := domain.NewTextTweet(user, text)
+	//
+	//		tweetManager.TweetWriter.WriteTweet(tweet)
+	//
+	//	},
+	//})
 
 	shell.Run()
 
