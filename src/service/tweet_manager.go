@@ -36,7 +36,7 @@ func (tweetManager *TweetManager) PublishTweet(twit domain.Tweet) (int, error) {
 
 	tweetManager.tweet = twit
 
-	if _, existe := tweetManager.tweetsMap[twit.GetUser()]; !existe {
+	if _, exists := tweetManager.tweetsMap[twit.GetUser()]; !exists {
 		tweetManager.tweetsMap[twit.GetUser()] =  make([]domain.Tweet, 0)
 	}
 
@@ -47,19 +47,6 @@ func (tweetManager *TweetManager) PublishTweet(twit domain.Tweet) (int, error) {
 	tweetManager.TweetWriter.WriteTweet(twit)
 
 	return id, nil
-
-}
-
-func (tweetManager *TweetManager) PublishTweetRest(c *gin.Context) {
-
-	var tweetToPublish domain.Tweet
-
-	if err := c.ShouldBindJSON(&tweetToPublish); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	fmt.Println(tweetToPublish.GetText())
 
 }
 
@@ -75,33 +62,17 @@ func (tweetManager *TweetManager) GetTweets() []domain.Tweet {
 
 }
 
-func (tweetManager *TweetManager) GetTweetsRest(c *gin.Context) {
-
-	c.JSON(200, tweetManager.Tweets)
-
-}
-
-func (tweetManager *TweetManager) GetTweetsByIdRest(c *gin.Context) {
-
-	id := c.Param("id")
-
-	idInt, _ := strconv.Atoi(id)
-
-	c.JSON(200, tweetManager.Tweets[idInt])
-
-}
-
-func (tweetManager *TweetManager) GetLastTweetRest(c *gin.Context) {
-
-	len := len(tweetManager.Tweets)
-
-	c.JSON(200, tweetManager.Tweets[len-1])
-
-}
-
 func (tweetManager *TweetManager) GetTweetById(id int) domain.Tweet {
 
 	return tweetManager.Tweets[id]
+
+}
+
+func (tweetManager *TweetManager) GetLastTweet() domain.Tweet {
+
+	len := len(tweetManager.GetTweets())
+
+	return tweetManager.Tweets[len - 1]
 
 }
 
@@ -145,3 +116,82 @@ func (tweetManager *TweetManager) SearchTweetsContaining(query string, searchRes
 
 }
 
+func (tweetManager *TweetManager) PublishRest(c *gin.Context) {
+
+	var tweetToPublish domain.TweetDTO
+
+	if err := c.ShouldBindJSON(&tweetToPublish); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	tweetPublished := GetTweet(&tweetToPublish, tweetManager)
+
+	tweetManager.PublishTweet(tweetPublished)
+
+	c.JSON(200, tweetPublished)
+
+}
+
+func (tweetManager *TweetManager) GetLastTweetRest(c *gin.Context) {
+
+	c.JSON(200, tweetManager.GetLastTweet())
+
+}
+
+func (tweetManager *TweetManager) GetTweetsRest(c *gin.Context) {
+
+	c.JSON(200, tweetManager.Tweets)
+
+}
+
+func (tweetManager *TweetManager) GetTweetByIdRest(c *gin.Context) {
+
+	id := c.Param("id")
+
+	idInt, _ := strconv.Atoi(id)
+
+	c.JSON(200, tweetManager.Tweets[idInt])
+
+}
+
+
+func (tweetManager *TweetManager) CountTweetsByUserRest(c *gin.Context) {
+
+	user := c.Param("user")
+
+	count := 0
+
+	for _, valor := range tweetManager.Tweets {
+		if valor.GetUser() == user {
+			count++
+		}
+	}
+
+	c.String(200, strconv.Itoa(count))
+
+}
+
+func (tweetManager *TweetManager) GetTweetsByUserRest(c *gin.Context) {
+
+	user := c.Param("user")
+
+	tweetsToPublish := tweetManager.tweetsMap[user]
+
+	c.JSON(200, tweetsToPublish)
+
+}
+
+func (tweetManager *TweetManager) SearchTweetByQueryRest(c *gin.Context) {
+
+	query := c.Param("query")
+
+	searchResult := make(chan domain.Tweet)
+
+	tweetManager.SearchTweetsContaining(query, searchResult)
+
+	foundTweet := <- searchResult
+
+	c.JSON(200, foundTweet)
+
+}
