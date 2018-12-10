@@ -119,7 +119,7 @@ func TestCanPublishAndRetrieveMoreThanOneTweet(t *testing.T) {
 
 	tweetManager := service.NewTweetManager(service.NewMemoryTweetWriter())
 
-	var tweet, secondTweet domain.Tweet // Fill the tweets with data
+	var tweet, secondTweet domain.Tweet // Fill the Tweets with data
 
 	userPrimerTweet := "Luciano"
 	textPrimerTweet := "Primer Tweet"
@@ -231,7 +231,7 @@ func TestCanRetrieveTheTweetsSentByAnUser(t *testing.T) {
 	tweet = domain.NewTextTweet(user, text)
 	secondTweet = domain.NewTextTweet(user, secondText)
 	thirdTweet = domain.NewTextTweet(anotherUser, text)
-	// publish the 3 tweets
+	// publish the 3 Tweets
 
 	if _, err := tweetManager.PublishTweet(tweet); err != nil {
 		return

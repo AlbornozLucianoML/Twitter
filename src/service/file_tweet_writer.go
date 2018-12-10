@@ -12,7 +12,7 @@ type FileTweetWriter struct {
 func NewFileTweetWriter() *FileTweetWriter {
 
 	file, _ := os.OpenFile(
-		"tweets.txt",
+		"Tweets.txt",
 		os.O_WRONLY|os.O_TRUNC|os.O_CREATE,
 		0666,
 	)

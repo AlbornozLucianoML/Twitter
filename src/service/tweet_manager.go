@@ -3,13 +3,15 @@ package service
 import (
 	"fmt"
 	"github.com/AlbornozLucianoML/Twitter/src/domain"
+	"github.com/gin-gonic/gin"
+	"strconv"
 	"strings"
 )
 
 type TweetManager struct {
-	tweet domain.Tweet
-	tweetsMap map[string] []domain.Tweet
-	tweets []domain.Tweet
+	tweet       domain.Tweet
+	tweetsMap   map[string] []domain.Tweet
+	Tweets      []domain.Tweet
 	TweetWriter TweetWriter
 }
 
@@ -27,7 +29,7 @@ func (tweetManager *TweetManager) PublishTweet(twit domain.Tweet) (int, error) {
 		return -1, fmt.Errorf("text length less than 140 characters is required")
 	}
 
-	id := len(tweetManager.tweets)
+	id := len(tweetManager.Tweets)
 
 	twit.SetId(id)
 
@@ -39,7 +41,7 @@ func (tweetManager *TweetManager) PublishTweet(twit domain.Tweet) (int, error) {
 
 	tweetManager.tweetsMap[twit.GetUser()] = append(tweetManager.tweetsMap[twit.GetUser()], twit)
 
-	tweetManager.tweets = append(tweetManager.tweets, twit)
+	tweetManager.Tweets = append(tweetManager.Tweets, twit)
 
 	tweetManager.TweetWriter.WriteTweet(twit)
 
@@ -55,28 +57,45 @@ func (tweetManager *TweetManager) GetTweet() domain.Tweet {
 
 func (tweetManager *TweetManager) GetTweets() []domain.Tweet {
 
-	return tweetManager.tweets
+	return tweetManager.Tweets
+
+}
+
+func (tweetManager *TweetManager) GetTweetsRest(c *gin.Context) {
+
+	c.JSON(200, tweetManager.Tweets)
+
+}
+
+func (tweetManager *TweetManager) GetTweetsByIdRest(c *gin.Context) {
+
+	id := c.Param("id")
+
+	idInt, _ := strconv.Atoi(id)
+
+	c.JSON(200, tweetManager.Tweets[idInt])
+
+}
+
+func (tweetManager *TweetManager) GetLastTweetRest(c *gin.Context) {
+
+	len := len(tweetManager.Tweets)
+
+	c.JSON(200, tweetManager.Tweets[len-1])
 
 }
 
 func (tweetManager *TweetManager) GetTweetById(id int) domain.Tweet {
 
-	return tweetManager.tweets[id]
+	return tweetManager.Tweets[id]
 
 }
-
-//func (tweetManager TweetManager) InitializeService() {
-//
-//	tweetManager.tweetsMap = make(map[string] []*domain.Tweet)
-//	tweetManager.tweets = make([]*domain.Tweet, 0)
-//
-//}
 
 func (tweetManager *TweetManager) CountTweetsByUser(user string) int {
 
 	count := 0
 
-	for _, valor := range tweetManager.tweets {
+	for _, valor := range tweetManager.Tweets {
 		if valor.GetUser() == user {
 			count++
 		}
@@ -94,7 +113,7 @@ func NewTweetManager(tweetWriter TweetWriter) *TweetManager {
 	tweetsMap := make(map[string] []domain.Tweet)
 	tweets := make([]domain.Tweet, 0)
 
-	tweetManager := TweetManager{tweetsMap: tweetsMap, tweets: tweets, TweetWriter: tweetWriter}
+	tweetManager := TweetManager{tweetsMap: tweetsMap, Tweets: tweets, TweetWriter: tweetWriter}
 
 	return &tweetManager
 
@@ -102,7 +121,7 @@ func NewTweetManager(tweetWriter TweetWriter) *TweetManager {
 
 func (tweetManager *TweetManager) SearchTweetsContaining(query string, searchResult chan domain.Tweet) {
 
-	go func() { for _, valor := range tweetManager.tweets {
+	go func() { for _, valor := range tweetManager.Tweets {
 		if strings.Contains(valor.GetText(), query) {
 			searchResult <- valor
 		}
@@ -111,3 +130,4 @@ func (tweetManager *TweetManager) SearchTweetsContaining(query string, searchRes
 	}()
 
 }
+
