@@ -12,6 +12,7 @@ func RunServer(tweetManager *service.TweetManager) {
 	router.GET("/getTweetList", tweetManager.GetTweetsRest)
 	router.GET("/getTweet/:id", tweetManager.GetTweetsByIdRest)
 	router.GET("/getLastTweet", tweetManager.GetLastTweetRest)
+	router.POST("/publishTweet/:tweet", tweetManager.PublishTweetRest)
 
 
 	go router.Run()

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/AlbornozLucianoML/Twitter/src/domain"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"strconv"
 	"strings"
 )
@@ -46,6 +47,19 @@ func (tweetManager *TweetManager) PublishTweet(twit domain.Tweet) (int, error) {
 	tweetManager.TweetWriter.WriteTweet(twit)
 
 	return id, nil
+
+}
+
+func (tweetManager *TweetManager) PublishTweetRest(c *gin.Context) {
+
+	var tweetToPublish domain.Tweet
+
+	if err := c.ShouldBindJSON(&tweetToPublish); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	fmt.Println(tweetToPublish.GetText())
 
 }
 

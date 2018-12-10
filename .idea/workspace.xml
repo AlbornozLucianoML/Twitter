@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2138dcd8-536a-4c64-b559-eaf66421fd19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/application/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/application/shell.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/TweetDTO.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/file_tweet_writer.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/file_tweet_writer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/tweet_manager.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/tweet_manager.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/tweet_manager_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/tweet_manager_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tweeter" beforeDir="false" afterPath="$PROJECT_DIR$/src/tweeter" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tweeter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/tweeter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tweets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/tweets.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/service/tweet_manager.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="79" column="50" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="50" />
+            <state relative-caret-position="117">
+              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="81" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -86,33 +78,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/quote_tweet.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/domain/image_tweet.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="165">
+              <caret line="14" column="69" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/routergroup.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -176,8 +150,8 @@
         <option value="$PROJECT_DIR$/src/domain/text_tweet.go" />
         <option value="$PROJECT_DIR$/src/domain/TweetDTO.go" />
         <option value="$PROJECT_DIR$/src/tweeter.go" />
-        <option value="$PROJECT_DIR$/src/service/tweet_manager.go" />
         <option value="$PROJECT_DIR$/src/application/server.go" />
+        <option value="$PROJECT_DIR$/src/service/tweet_manager.go" />
       </list>
     </option>
   </component>
@@ -370,6 +344,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4883721" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" sideWeight="0.5116279" side_tool="true" weight="0.2532189" />
@@ -539,20 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/quote_tweet.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/tweet_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/tweet.go">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -577,24 +538,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/tweet_manager.go">
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/routergroup.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="79" column="50" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="50" />
+        <state relative-caret-position="135">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/quote_tweet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/tweet_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="165">
+          <caret line="14" column="69" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/routergroup.go">
+    <entry file="file://$PROJECT_DIR$/src/service/tweet_manager.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="117">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="81" selection-end-column="18" />
         </state>
       </provider>
     </entry>
